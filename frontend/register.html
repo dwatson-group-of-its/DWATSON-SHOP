@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dwatson | Admin Sign Up</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <a href="index.html" class="logo">dwatson</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="product.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="checkout.html">Checkout</a>
+        <a href="admins.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container account">
+    <section class="auth-card">
+      <h1>Create Admin Account</h1>
+      <p class="muted">Fill in your details to access the administrative dashboard.</p>
+      <form id="admin-register-form" class="stack">
+        <label>
+          Name
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Password
+          <input type="password" name="password" minlength="6" required />
+        </label>
+        <button type="submit" class="btn">Sign Up</button>
+        <a class="muted" href="admins.html">Already have an account? Login</a>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> dwatson. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/api.js" type="module"></script>
+  <script src="assets/js/register.js" type="module"></script>
+</body>
+</html>

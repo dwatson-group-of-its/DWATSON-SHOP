@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dwatson | Cart</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <a href="index.html" class="logo">dwatson</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="product.html">Products</a>
+        <a href="cart.html" class="active">Cart</a>
+        <a href="checkout.html">Checkout</a>
+        <a href="admins.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-header">
+      <h1>Your Cart</h1>
+    </section>
+
+    <section id="cart-items" class="cart-items"></section>
+
+    <section class="cart-summary">
+      <div>
+        <p>Subtotal: <span id="cart-subtotal">$0.00</span></p>
+        <p>Total: <strong id="cart-total">$0.00</strong></p>
+      </div>
+      <div class="cart-actions">
+        <button id="continue-shopping" class="btn btn-light">Continue Shopping</button>
+        <a href="checkout.html" class="btn">Proceed to Checkout</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> dwatson. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/api.js" type="module"></script>
+  <script src="assets/js/cart.js" type="module"></script>
+</body>
+</html>

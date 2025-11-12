@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dwatson | Admin</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <a href="index.html" class="logo">dwatson</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="product.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="checkout.html">Checkout</a>
+        <a href="admins.html" class="active">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container admin">
+    <section id="admin-login" class="auth-card">
+      <h1>Admin Access</h1>
+      <p class="muted">Sign in with administrator credentials to manage the storefront.</p>
+      <form id="admin-login-form" class="stack">
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Password
+          <input type="password" name="password" required />
+        </label>
+        <button type="submit" class="btn">Login</button>
+        <a class="muted" href="register.html">Need an account? Sign up</a>
+      </form>
+    </section>
+
+    <section id="admin-dashboard" class="hide">
+      <section class="page-header">
+        <div>
+          <h1>Admin Dashboard</h1>
+          <p class="muted">Manage products, categories, banners, orders, and users.</p>
+        </div>
+        <div class="admin-controls">
+          <button id="admin-logout" class="btn btn-light">Logout</button>
+        </div>
+      </section>
+
+      <section class="admin-stats" id="admin-stats"></section>
+
+      <section class="admin-panels">
+        <div class="panel panel--form">
+          <h2>Products</h2>
+          <form id="product-form" class="stack">
+            <input type="hidden" name="id" />
+            <label>Name<input type="text" name="name" required /></label>
+            <label>Description<textarea name="description" rows="3" required></textarea></label>
+            <div class="grid-2">
+              <label>Price<input type="number" name="price" min="0" step="0.01" required /></label>
+              <label>Sale Price<input type="number" name="salePrice" min="0" step="0.01" /></label>
+            </div>
+            <div class="grid-2">
+              <label>Category
+                <select name="categoryId" id="product-category">
+                  <option value="">Unassigned</option>
+                </select>
+              </label>
+              <label>Brand<input type="text" name="brand" /></label>
+            </div>
+            <label>Manufacturer<input type="text" name="manufacturer" placeholder="e.g. Ajmal Medicine" /></label>
+            <label>Ingredients<textarea name="ingredients" rows="2" placeholder="Comma separated ingredients"></textarea></label>
+            <label>Usage / Directions<textarea name="usage" rows="3" placeholder="How to use this product"></textarea></label>
+            <label>Benefits<textarea name="benefits" rows="3" placeholder="Key benefits"></textarea></label>
+            <label>Side Effects<textarea name="sideEffects" rows="3" placeholder="Possible side effects"></textarea></label>
+            <label>Images (comma separated URLs)<input type="text" name="images" /></label>
+            <label>Stock<input type="number" name="countInStock" min="0" required /></label>
+            <label class="checkbox">
+              <input type="checkbox" name="isFeatured" /> Featured
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" name="isTrending" /> Trending
+            </label>
+            <div class="form-actions">
+              <button type="submit" class="btn">Save Product</button>
+              <button type="button" id="product-reset" class="btn btn-light">Reset</button>
+            </div>
+          </form>
+          <div id="products-list" class="list"></div>
+        </div>
+
+        <div class="panel panel--form">
+          <h2>Categories</h2>
+          <form id="category-form" class="stack">
+            <input type="hidden" name="id" />
+            <label>Name<input type="text" name="name" required /></label>
+            <label>Slug<input type="text" name="slug" placeholder="Auto from name if left blank" /></label>
+            <label>Description<textarea name="description" rows="2"></textarea></label>
+            <label>Parent Category
+              <select name="parentId" id="category-parent">
+                <option value="">Top-level</option>
+              </select>
+            </label>
+            <label>Image URL<input type="text" name="image" /></label>
+            <label>Display Order<input type="number" name="order" min="0" /></label>
+            <label class="checkbox"><input type="checkbox" name="isActive" checked /> Visible</label>
+            <div class="form-actions">
+              <button type="submit" class="btn">Save Category</button>
+              <button type="button" id="category-reset" class="btn btn-light">Reset</button>
+            </div>
+          </form>
+          <div id="categories-list" class="list"></div>
+        </div>
+
+        <div class="panel panel--form">
+          <h2>Banners</h2>
+          <form id="banner-form" class="stack">
+            <input type="hidden" name="id" />
+            <label>Title<input type="text" name="title" required /></label>
+            <label>Subtitle<textarea name="subtitle" rows="2"></textarea></label>
+            <label>Image URL<input type="text" name="image" required /></label>
+            <div class="grid-2">
+              <label>Link URL<input type="text" name="linkUrl" /></label>
+              <label>Button Text<input type="text" name="buttonText" placeholder="Shop Now" /></label>
+            </div>
+            <div class="grid-2">
+              <label>Display Order<input type="number" name="order" min="0" /></label>
+              <label>Background Color<input type="text" name="backgroundColor" placeholder="#ffffff" /></label>
+            </div>
+            <label class="checkbox"><input type="checkbox" name="isActive" checked /> Visible</label>
+            <label>Placement
+              <select name="placement">
+                <option value="hero">Hero Banner</option>
+                <option value="sale">Sale Highlight</option>
+                <option value="promo">Promo Panel</option>
+              </select>
+            </label>
+            <label>Badge Text<input type="text" name="badgeText" placeholder="Hot Deals" /></label>
+            <div class="form-actions">
+              <button type="submit" class="btn">Save Banner</button>
+              <button type="button" id="banner-reset" class="btn btn-light">Reset</button>
+            </div>
+          </form>
+          <div id="banners-list" class="list"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Orders</h2>
+          <div id="orders-list" class="list"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Users</h2>
+          <div id="users-list" class="list"></div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> dwatson. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/api.js" type="module"></script>
+  <script src="assets/js/admin.js" type="module"></script>
+</body>
+</html>

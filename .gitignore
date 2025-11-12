@@ -1,0 +1,27 @@
+# Node
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# Backend dependencies & environment
+backend/node_modules/
+backend/package-lock.json
+backend/.env
+
+# Frontend caches
+frontend/node_modules/
+
+# Logs
+logs/
+*.log
+
+# OS / Editor swaps
+.DS_Store
+Thumbs.db
+*.swp
+
+# Build artifacts
+dist/
+tmp/
+
+
